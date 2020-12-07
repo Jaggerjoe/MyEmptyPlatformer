@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 
 ///<summary>
-/// Extensions for UnityEngine.Rect struct.
+/// Extensions for UnityEngine.AnimationCurve instances.
 ///</summary>
+[HelpURL("https://github.com/DaCookie/empty-platformer/blob/master/Docs/animation-curve-extension.md")]
 public static class AnimationCurveExtension
 {
 
     #region Properties
 
-    // Default Keyframe value
+    // Default Keyframe value.
     public static readonly Keyframe DEFAULT_KEYFRAME = new Keyframe(0f, 0f);
 
     #endregion

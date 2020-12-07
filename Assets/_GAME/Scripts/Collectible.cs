@@ -4,6 +4,7 @@ using UnityEngine.Events;
 ///<summary>
 /// Represents a collectioble item.
 ///</summary>
+[HelpURL("https://github.com/DaCookie/empty-platformer/blob/master/Docs/collectible.md")]
 public class Collectible : MonoBehaviour
 {
 
@@ -62,6 +63,14 @@ public class Collectible : MonoBehaviour
             position = transform.position,
             collector = _Other.gameObject
         });
+    }
+
+    /// <summary>
+    /// Called when a character collects this item.
+    /// </summary>
+    public CollectInfosEvent OnCollect
+    {
+        get { return m_OnCollect; }
     }
 
 }

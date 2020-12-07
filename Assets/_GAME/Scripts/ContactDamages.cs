@@ -4,14 +4,46 @@ using UnityEngine.Events;
 ///<summary>
 /// Represents the capacity of an object to take damages by touching another entity.
 ///</summary>
+[HelpURL("https://github.com/DaCookie/empty-platformer/blob/master/Docs/contact-damages.md")]
 public class ContactDamages : MonoBehaviour
 {
 
+    #region Subclasses
+
+    [System.Serializable]
+    private class ContactDamagesEvents
+    {
+        // Called when the character takes damages
+        public HitInfosEvent OnContact = new HitInfosEvent();
+
+        // Called after the character took damages, and enter in invincible state
+        // Sends the invincibility duration
+        public FloatEvent OnBeginInvincibility = new FloatEvent();
+
+        // Called when the invincible state updates
+        // Sends the invincibility timer ratio over the total duration
+        public FloatEvent OnUpdateInvincibility = new FloatEvent();
+
+        // Called when the character lose its invincible state
+        public UnityEvent OnStopInvincibility = new UnityEvent();
+    }
+
+    #endregion
+
+
     #region Properties
+
+    [Header("References")]
+
+    [SerializeField, Tooltip("By default, gets the Health component on this GameObject")]
+    private Health m_Health = null;
+
+    [SerializeField, Tooltip("By default, gets the BoxCollider component on this GameObject")]
+    private BoxCollider m_Collider = null;
 
     [Header("Settings")]
 
-    [SerializeField]
+    [SerializeField, Tooltip("Defines the layer of the objects that can damage this entity")]
     private LayerMask m_DamagingLayer = 0;
 
     [SerializeField, Tooltip("Defines the number of lives to lose when touching a damaging object")]
@@ -20,30 +52,10 @@ public class ContactDamages : MonoBehaviour
     [SerializeField, Tooltip("Sets the duration of invincibility after touching a damaging object")]
     private float m_InvincibilityDuration = .4f;
 
-    [SerializeField, Tooltip("By default, gets the Health component on this GameObject")]
-    private Health m_Health = null;
-
-    [SerializeField, Tooltip("By default, gets the BoxCollider component on this GameObject")]
-    private BoxCollider m_Collider = null;
-
     [Header("Events")]
 
     [SerializeField]
-    private HitInfosEvent m_OnContact = new HitInfosEvent();
-
-    // Called after the character take damages without damages, and enter in invincible state
-    // Sends the invincibility duration
-    [SerializeField]
-    private FloatEvent m_OnBeginInvincibility = new FloatEvent();
-
-    // Called when the invincible state updates
-    // Sends the invincibility timer ratio over the total duration
-    [SerializeField]
-    private FloatEvent m_OnUpdateInvincibility = new FloatEvent();
-
-    // Called when the character lose its invincible state
-    [SerializeField]
-    private UnityEvent m_OnStopInvincibility = new UnityEvent();
+    private ContactDamagesEvents m_ContactDamagesEvents = new ContactDamagesEvents();
 
     private float m_InvincibilityTimer = 0f;
 
@@ -77,11 +89,11 @@ public class ContactDamages : MonoBehaviour
             // If the invincibility state is finished
             if (m_InvincibilityTimer > m_InvincibilityDuration)
             {
-                m_OnStopInvincibility.Invoke();
+                m_ContactDamagesEvents.OnStopInvincibility.Invoke();
             }
             else
             {
-                m_OnUpdateInvincibility.Invoke(InvincibilityRatio);
+                m_ContactDamagesEvents.OnUpdateInvincibility.Invoke(InvincibilityRatio);
             }
         }
 
@@ -93,12 +105,14 @@ public class ContactDamages : MonoBehaviour
         // If the character touches a damaging object
         if (contacts.Length != 0)
         {
-            m_OnContact.Invoke(new HitInfos()
+            m_ContactDamagesEvents.OnContact.Invoke(new HitInfos()
             {
                 shooter = contacts[0].gameObject,
                 target = gameObject,
                 distance = 0f,
-                damages = m_DamagesOnContact
+                damages = m_DamagesOnContact,
+                impact = transform.position,
+                origin = contacts[0].transform.position
             });
 
             // Apply damages
@@ -107,7 +121,7 @@ public class ContactDamages : MonoBehaviour
             if (!m_Health.IsDead)
             {
                 m_InvincibilityTimer = 0f;
-                m_OnBeginInvincibility.Invoke(m_InvincibilityDuration);
+                m_ContactDamagesEvents.OnBeginInvincibility.Invoke(m_InvincibilityDuration);
             }
         }
     }
@@ -115,7 +129,7 @@ public class ContactDamages : MonoBehaviour
     #endregion
 
 
-    #region Public Methods
+    #region Public API
 
     /// <summary>
     /// Checks if the character is currently invincible.
@@ -131,6 +145,38 @@ public class ContactDamages : MonoBehaviour
     public float InvincibilityRatio
     {
         get { return (m_InvincibilityDuration > 0f) ? Mathf.Clamp01(m_InvincibilityTimer / m_InvincibilityDuration) : 0f; }
+    }
+
+    /// <summary>
+    /// Called when the character takes damages.
+    /// </summary>
+    public HitInfosEvent OnContact
+    {
+        get { return m_ContactDamagesEvents.OnContact; }
+    }
+
+    /// <summary>
+    /// Called after the character took damages, and enter in invincible state. Sends the invincibility duration.
+    /// </summary>
+    public FloatEvent OnBeginInvincibility
+    {
+        get { return m_ContactDamagesEvents.OnBeginInvincibility; }
+    }
+
+    /// <summary>
+    /// Called when the invincible state updates. Sends the invincibility timer ratio over the total duration.
+    /// </summary>
+    public FloatEvent OnUpdateInvincibility
+    {
+        get { return m_ContactDamagesEvents.OnUpdateInvincibility; }
+    }
+
+    /// <summary>
+    /// Called when the character lose its invincible state.
+    /// </summary>
+    public UnityEvent OnStopInvincibility
+    {
+        get { return m_ContactDamagesEvents.OnStopInvincibility; }
     }
 
     #endregion
