@@ -22,7 +22,7 @@ public class Particles : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Instantiate(m_ParticlesCoin, transform.position, transform.rotation);
-        m_SoundManger.Play("Coin");
+        //m_SoundManger.Play("Coin");
         Debug.Log("J'ai touché");
     }
 }
