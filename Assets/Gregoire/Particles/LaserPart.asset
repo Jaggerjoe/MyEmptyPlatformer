@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Box Volume Profile
+  m_Script: {fileID: 11500000, guid: 35bca53644244754f806b218dfc734e3, type: 3}
+  m_Name: LaserPart
   m_EditorClassIdentifier: 
-  components: []
+  m_Prefab: {fileID: 632181384328454527, guid: e81abaf7d219fc24c9ec75493d61ee65, type: 3}

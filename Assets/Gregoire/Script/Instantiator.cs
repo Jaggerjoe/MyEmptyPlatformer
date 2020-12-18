@@ -12,4 +12,21 @@ public class Instantiator : ScriptableObject
     {
         Instantiate(m_Prefab, p_Infos.position, Quaternion.identity);
     }
+    public void InstantiatePref(LandingInfos p_Info)
+    {
+        if(p_Info.fallingTime >=.5)
+        {
+            Instantiate(m_Prefab, p_Info.landingPosition - new Vector3(0,1,0), Quaternion.identity);
+        }
+    }
+    public void InstantiatePref(HitInfos p_HitInfos)
+    {
+        Instantiate(m_Prefab, p_HitInfos.impact,Quaternion.identity);
+    }
+
+    public void InstantiatePref(ShootInfos p_InfoShoot)
+    {
+        GameObject l_Instantite = Instantiate(m_Prefab, p_InfoShoot.origin, Quaternion.LookRotation(p_InfoShoot.direction, Vector3.forward) /** Quaternion.AngleAxis(90, Vector3.down)*/);
+        //l_Instantite.transform.right = p_InfoShoot.direction;
+    }
 }
