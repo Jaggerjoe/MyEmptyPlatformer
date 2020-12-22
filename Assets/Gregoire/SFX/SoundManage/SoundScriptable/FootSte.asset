@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa42dffb29c21804caeddae125896f06, type: 3}
+  m_Name: FootSte
+  m_EditorClassIdentifier: 
+  naming: FootStep
+  clip:
+  - {fileID: 8300000, guid: 05a08dd4ee0c046a6b56466d5c9aa9b8, type: 3}
+  - {fileID: 8300000, guid: bc1c11a60c94e439d84d64c56fdd354f, type: 3}
+  - {fileID: 8300000, guid: 64049f336db3d403dabd0425eb159922, type: 3}
+  - {fileID: 8300000, guid: aa9d74433c06a41a9b25cc9175d3f3ae, type: 3}
+  - {fileID: 8300000, guid: f7bff2a24d7d64eb296a8133060bd3e9, type: 3}
+  volume: 0.2
+  pitch: 1
+  loop: 0
+  source: {fileID: 0}

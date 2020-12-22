@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   naming: Coin
-  clip: {fileID: 8300000, guid: c7ee2910fb7de6c469f43669afc4ef2b, type: 3}
-  volume: 0.17
+  clip:
+  - {fileID: 8300000, guid: af3856255654b4a2eb66385d39bec15b, type: 3}
+  - {fileID: 8300000, guid: 671e545a696ef49df9e6746391763bf5, type: 3}
+  - {fileID: 8300000, guid: e60e5f6ef75f34aeaad7f28083af44b4, type: 3}
+  volume: 0.663
   pitch: 1
   loop: 0
   source: {fileID: 0}
