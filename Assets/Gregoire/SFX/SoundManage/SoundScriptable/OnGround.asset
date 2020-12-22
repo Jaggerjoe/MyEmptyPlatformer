@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa42dffb29c21804caeddae125896f06, type: 3}
-  m_Name: Coin
+  m_Name: OnGround
   m_EditorClassIdentifier: 
-  naming: Coin
+  naming: EndJump
   clip:
-  - {fileID: 8300000, guid: af3856255654b4a2eb66385d39bec15b, type: 3}
-  - {fileID: 8300000, guid: 671e545a696ef49df9e6746391763bf5, type: 3}
-  - {fileID: 8300000, guid: e60e5f6ef75f34aeaad7f28083af44b4, type: 3}
-  volume: 1
+  - {fileID: 8300000, guid: c8677862719e441688678e6632161da9, type: 3}
+  volume: 0.3
   pitch: 1
   loop: 0
-  mixer: {fileID: 8810267230244681688, guid: 9fce4777a8cac7b42ae2f6669879a59d, type: 2}
+  mixer: {fileID: 0}
   source: {fileID: 0}

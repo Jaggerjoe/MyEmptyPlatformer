@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa42dffb29c21804caeddae125896f06, type: 3}
-  m_Name: Test
+  m_Name: Spell
   m_EditorClassIdentifier: 
-  naming: 
-  clip: []
-  volume: 0
-  pitch: 0
+  naming: Spell
+  clip:
+  - {fileID: 8300000, guid: 9ae32f8e1a94c486c9929faca77ff03b, type: 3}
+  volume: 0.5
+  pitch: 1
   loop: 0
+  mixer: {fileID: 8810267230244681688, guid: 9fce4777a8cac7b42ae2f6669879a59d, type: 2}
   source: {fileID: 0}

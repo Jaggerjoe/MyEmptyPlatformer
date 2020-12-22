@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa42dffb29c21804caeddae125896f06, type: 3}
-  m_Name: FootSte
+  m_Name: Hit
   m_EditorClassIdentifier: 
-  naming: FootStep
+  naming: Hit
   clip:
-  - {fileID: 8300000, guid: 05a08dd4ee0c046a6b56466d5c9aa9b8, type: 3}
-  - {fileID: 8300000, guid: bc1c11a60c94e439d84d64c56fdd354f, type: 3}
-  - {fileID: 8300000, guid: 64049f336db3d403dabd0425eb159922, type: 3}
-  - {fileID: 8300000, guid: aa9d74433c06a41a9b25cc9175d3f3ae, type: 3}
-  - {fileID: 8300000, guid: f7bff2a24d7d64eb296a8133060bd3e9, type: 3}
-  volume: 0.5
+  - {fileID: 8300000, guid: 1de1e8a440c7147a8bc721e7e0522d0e, type: 3}
+  - {fileID: 8300000, guid: 6196bc284b80c4c54a21b261031f4830, type: 3}
+  - {fileID: 8300000, guid: 46f921c425e8043f797ad496e6670211, type: 3}
+  volume: 0.3
   pitch: 1
   loop: 0
   mixer: {fileID: 8810267230244681688, guid: 9fce4777a8cac7b42ae2f6669879a59d, type: 2}
