@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: JumpInfo
   m_EditorClassIdentifier: 
   m_Duration: 0.1
-  m_Magnitude: 0.3
+  m_Magnitude: 1.2
