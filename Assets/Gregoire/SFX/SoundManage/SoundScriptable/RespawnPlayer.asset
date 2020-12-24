@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa42dffb29c21804caeddae125896f06, type: 3}
-  m_Name: Jump
+  m_Name: RespawnPlayer
   m_EditorClassIdentifier: 
-  naming: Jump
+  naming: RespawnP
   clip:
-  - {fileID: 8300000, guid: 9f110f013401f42e996da5094d6f8b8b, type: 3}
-  volume: 0.15
+  - {fileID: 8300000, guid: 42c022ee5695a439cb9d9b2af5b0f723, type: 3}
+  volume: 0.5
   pitch: 1
   loop: 0
   mixer: {fileID: 8810267230244681688, guid: 9fce4777a8cac7b42ae2f6669879a59d, type: 2}
