@@ -24,11 +24,13 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        //Play(namesound);
+        PlaySound(namesound);
     }
     public void PlaySound(string name)
     {
-       
+        SoundScriptable s = System.Array.Find(scriptableSounds, sound => sound.naming == name);
+        s.source.clip = s.clip[Random.Range(0, s.clip.Length)];
+        s.source.Play();
     }
 
     public void Play(string name)

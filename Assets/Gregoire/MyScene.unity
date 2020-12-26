@@ -225,7 +225,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 690538941f9867a4f82d2bd7277ec676, type: 2}
   - {fileID: 11400000, guid: 7017de8f493f8a848a09f3099b9ec747, type: 2}
   - {fileID: 11400000, guid: 2007728851f85b84da0268cde3407948, type: 2}
-  namesound: 
+  - {fileID: 11400000, guid: cecdf178b9f4deb4e83c096a6533ce3f, type: 2}
+  namesound: Main
 --- !u!4 &152187128
 Transform:
   m_ObjectHideFlags: 0
